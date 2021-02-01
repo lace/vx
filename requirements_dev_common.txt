@@ -3,5 +3,5 @@ executor >= 21.0
 click >=7.0,<8.0
 
 # Unit tests.
-pytest ==4.5.0
+pytest ==6.2.2
 pytest-cov == 2.10.1
