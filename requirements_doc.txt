@@ -6,6 +6,6 @@ executor >= 21.0
 click >=7.0,<8.0
 
 # Documentation.
-Sphinx == 2.2.1
+Sphinx == 3.5.1
 sphinxcontrib-apidoc
 recommonmark
