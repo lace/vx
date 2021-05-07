@@ -1,6 +1,11 @@
 Changelog
 =========
 
+## 1.10.0 (May 7, 2021)
+
+- Add `vg.apex_and_opposite()`, which is like `vg.apex()` except it
+  returns both extreme points.
+
 ## 1.9.0 (Jun. 4, 2020)
 
 - Add `vg.argapex()`, which is like `vg.apex()` except it returns the
