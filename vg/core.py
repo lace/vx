@@ -24,6 +24,7 @@ __all__ = [
     "principal_components",
     "major_axis",
     "apex",
+    "apex_and_opposite",
     "argapex",
     "nearest",
     "farthest",
@@ -529,6 +530,29 @@ def apex(points, along):
         np.ndarray: A copy of a point taken from `points`.
     """
     return points[argapex(points=points, along=along)].copy()
+
+
+def apex_and_opposite(points, along):
+    """
+    Find the most extreme point in the direction provided and the most extreme
+    point in the opposite direction.
+
+    Args:
+        points (np.arraylike): A `kx3` stack of points in R^3.
+        along (np.arraylike): A `(3,)` vector specifying the direction of
+            interest.
+
+    Returns:
+        np.ndarray: A `2x3` vector containing the apex and opposite points.
+    """
+    k = check(locals(), "points", (-1, 3))
+    if k == 0:
+        raise ValueError("At least one point is required")
+    check(locals(), "along", (3,))
+    coords_on_axis = points.dot(along)
+    apex = np.argmax(coords_on_axis)
+    opposite = np.argmin(coords_on_axis)
+    return points[[apex, opposite]].copy()
 
 
 def nearest(from_points, to_point, ret_index=False):
